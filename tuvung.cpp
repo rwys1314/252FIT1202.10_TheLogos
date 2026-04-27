@@ -4,7 +4,7 @@
 #include <ctime>
 
 // ============================================================
-//  KHOI TAO & GIAI PHONG
+//  KHỞI TẠO & GIẢI PHÓNG
 // ============================================================
 
 void khoiTao(TuDien& td, int dungLuongBanDau) {
@@ -20,7 +20,7 @@ void giaiPhong(TuDien& td) {
     td.dungLuong = 0;
 }
 
-// Khi mang day, cap phat mang moi gap doi kich thuoc
+// Khi mảng đầy, cấp phát mảng mới gấp đôi kích thước
 void moRong(TuDien& td) {
     int dungLuongMoi  = td.dungLuong * 2;
     TuVung* mangMoi   = new TuVung[dungLuongMoi];
@@ -82,14 +82,14 @@ void hienThiChiTiet(const TuVung& tv) {
     cout << "  Yeu thich: " << (tv.favorite ? "* Co" : "Chua") << "\n";
 }
 
-// Sua theo vitri, tra ve false neu vitri khong hop le
+// Sửa theo vitri, trả về false nếu vitri không hợp lệ
 bool suaTuVung(TuDien& td, int viTri, const TuVung& tvMoi) {
     if (viTri < 0 || viTri >= td.soLuong) return false;
     td.data[viTri] = tvMoi;
     return true;
 }
 
-// Xoa theo vitri, don mang lai
+// Xóa theo vitri, dồn mảng lại
 bool xoaTuVung(TuDien& td, int viTri) {
     if (viTri < 0 || viTri >= td.soLuong) return false;
     for (int i = viTri; i < td.soLuong - 1; i++) {
@@ -100,7 +100,7 @@ bool xoaTuVung(TuDien& td, int viTri) {
 }
 
 // ============================================================
-//  TIM KIEM & SAP XEP
+//  TÌM KIẾM & SẮP XẾP
 // ============================================================
 
 void sapXepTheoAlphabet(TuDien& td) {
@@ -113,7 +113,7 @@ void sapXepTheoAlphabet(TuDien& td) {
     }
 }
 
-// Binary Search chinh xac (yeu cau da sap xep truoc)
+// Binary Search chính xác (yêu cầu đã sắp xếp trước)
 int BinarySearch(const TuDien& td, const string& word) {
     int left = 0, right = td.soLuong - 1;
     while (left <= right) {
@@ -125,20 +125,20 @@ int BinarySearch(const TuDien& td, const string& word) {
     return -1;
 }
 
-// Tim kiem: Binary Search + fallback chuoi con
+// Tìm Kiếm: Binary Search + fallback chuỗi con
 void timKiem(const TuDien& td, const string& keyword) {
-    // Phai sap xep truoc khi goi Binary Search
-    // Nhung timKiem la const nen xu ly: tim chuoi con truoc
-    // roi tra ket qua chinh xac neu co
+    // Phải sắp xếp trước khi gọi Binary Search
+    // Nhưng timKiem là const nên xử lý: tìm chuỗi con trước
+    // rồi trả kết quả chính xác nếu có
     bool found = false;
 
     cout << "\n  Ket qua tim kiem cho '" << keyword << "':\n";
     cout << "  " << string(60, '-') << "\n";
 
     for (int i = 0; i < td.soLuong; i++) {
-        // Tim trong word hoac meaning (khong phan biet hoa thuong)
+        // Tìm trong word hoặc meaning (không phân biệt hoa thường)
         string w = td.data[i].word, k = keyword;
-        // Chuyen ve thuong de so sanh
+        // Chuyển về thường để so sánh
         for (char& c : w) c = tolower(c);
         for (char& c : k) c = tolower(c);
 
@@ -155,7 +155,7 @@ void timKiem(const TuDien& td, const string& keyword) {
 }
 
 // ============================================================
-//  YEU THICH
+//  YÊU THÍCH
 // ============================================================
 
 void danhDauYeuThich(TuDien& td, int viTri) {
@@ -184,7 +184,7 @@ void hienThiYeuThich(const TuDien& td) {
 }
 
 // ============================================================
-//  QUIZ NGAU NHIEN
+//  QUIZ NGẪU NHIÊN
 // ============================================================
 
 void quizNgauNhien(const TuDien& td) {
@@ -198,7 +198,7 @@ void quizNgauNhien(const TuDien& td) {
 
     cout << "  Quiz " << soCau << " cau ngau nhien. Nhap nghia tieng Viet:\n\n";
 
-    // Tao mang index ngau nhien khong trung lap
+    // Tạo mảng index ngẫu nhiên không trùng lặp
     int* indices = new int[td.soLuong];
     for (int i = 0; i < td.soLuong; i++) indices[i] = i;
     // Shuffle (Fisher-Yates)
@@ -233,7 +233,7 @@ void quizNgauNhien(const TuDien& td) {
 }
 
 // ============================================================
-//  THONG KE
+//  THỐNG KÊ
 // ============================================================
 
 void hienThiThongKe(const TuDien& td) {
@@ -260,8 +260,8 @@ void hienThiThongKe(const TuDien& td) {
 }
 
 // ============================================================
-//  DOC / GHI FILE
-//  Dinh dang moi dong: word|pronunciation|type|meaning|example|favorite
+//  ĐỌC/GHI FILE
+//  Định dạng mỗi dòng: word|pronunciation|type|meaning|example|favorite
 // ============================================================
 
 void ghiFile(const TuDien& td, const string& tenFile) {
@@ -294,7 +294,7 @@ void docFile(TuDien& td, const string& tenFile) {
         TuVung tv;
         tv.favorite = false;
 
-        // Tach cac truong theo ky tu '|'
+        // Tách các trường theo ký tự '|'
         auto tach = [&](string& dest) -> bool {
             size_t pos = line.find('|');
             if (pos == string::npos) return false;
