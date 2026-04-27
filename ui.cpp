@@ -65,7 +65,7 @@ void pauseScreen() {
 void hienThiMenu() {
     cout << "\n";
     cout << "  +======================================+\n";
-    cout << "  |      TU DIEN ANH - VIET v2.0        |\n";
+    cout << "  |      TU DIEN ANH - VIET              |\n";
     cout << "  +======================================+\n";
     cout << "  |  1. Tim kiem tu                     |\n";
     cout << "  |  2. Them tu moi                     |\n";
