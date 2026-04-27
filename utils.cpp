@@ -6,7 +6,7 @@ using namespace std;
 // ============================================================
 //  VẼ KHUNG
 // ============================================================
-void veKhung(int rong) {
+void veKhung(const string&) {
     for (int i = 0; i < rong; i++) {
         cout << "=";
     }
@@ -14,9 +14,9 @@ void veKhung(int rong) {
 }
 
 // ============================================================
-//  NHẬP SỐ HỢP LỆ (có kiểm tra lỗi)
+//  NHẬP SỐ NGUYÊN (có kiểm tra lỗi)
 // ============================================================
-int nhapSoHopLe(const string& thongBao, int min, int max) {
+int nhapSoNguyen(const string& thongBao, int min, int max) {
     int x;
 
     while (true) {
@@ -45,7 +45,7 @@ int nhapSoHopLe(const string& thongBao, int min, int max) {
 // ============================================================
 //  NHẬP CHUỖI HỢP LỆ (không rỗng)
 // ============================================================
-string nhapChuoiHopLe(const string& thongBao) {
+string nhapChuoi(const string& thongBao) {
     string s;
 
     while (true) {
