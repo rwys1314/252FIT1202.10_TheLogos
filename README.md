@@ -1,42 +1,95 @@
 # TranslateDictionary
 Từ điển Anh - Việt 
 
-Cấu trúc:
-- main.cpp     <- Leader viết
-- tuvung.h     <- Leader viết
-- tuvung.cpp   <- Developer viết
-- fileIO.cpp   <- Tester & Documenter viết
-- tudien.txt   <- Có sẵn
+# CẤU TRÚC
+| File          | Người viết                          | Nội dung chính                                      |
+|---------------|-------------------------------------|-----------------------------------------------------|
+| tuvung.h      | Leader                              | Toàn bộ struct TuVung, TuDien + prototype           |
+| tuvung.cpp    | Leader + Developer                  | Khởi tạo, CRUD, tìm kiếm, quiz, thống kê            |
+| main.cpp      | Leader                              | Menu, switch-case, khung chương trình               |
+| fileIO.cpp    | Tester & Documenter                 | Đọc/ghi file + thống kê, xuất yêu thích             |
+| ui.cpp        | Tester & Documenter                 | Vẽ khung, hiển thị menu, nhập số nguyên + chuỗi     |
+| tudien.txt    | Có sẵn                              | Dữ liệu từ vựng                                     |
+| thongke.txt   | Tự động tạo                         | Lịch sử tra cứu, thống kê quiz                      |
 
----------------------------------------------------
-Leader (main.cpp + tuvung.h):
-- [x] struct TuVung, TuDien
-- [x] khoiTao() / giaiPhong() / moRong()
-- [x] menu chính, validation input
-- [x] ghép code cuối + test tích hợp
-- [x] viết báo cáo
 
----------------------------------------------------
-Developer (tuvung.cpp):
-- [x] crud: themTuVung(), hienThiTatCa() + hienThiChiTiet(), suaTuVung(), xoaTuVung()
-- [x] danhDauYeuThich() + hienThiYeuThich()
-- [x] quizNgauNhien()
-- [x] hienThiThongKe()
+# PHÂN CÔNG CỤ THỂ
 
----------------------------------------------------
-Tester & Documenter (fileIO.cpp + validation):
-- [x] docFile() - đọc từ file khi khởi động
-- [x] ghiFile() - ghi ra file khi thoát
-- [x] xuatYeuThich() - xuất file riêng
-- [x] validation input: nhapSoNguyen(), nhapChuoi(), veKhung()
-- [x] try-catch cho tất cả các trường hợp lỗi
-- [ ] test toàn bộ chức năng, ghi bug ra
 
----------------------------------------------------
-CÁCH COMPILE:
-  g++ main.cpp tuvung.cpp crud.cpp fileIO.cpp -o tudien
-  ./tudien
+[Leader]
 
+| Nhiệm vụ                                  | File        | Trạng thái |
+|-------------------------------------------|-------------|------------|
+| Định nghĩa struct TuVung, TuDien          | tuvung.h    | [x]        |
+| Khai báo toàn bộ prototype                | tuvung.h    | [x]        |
+| khoiTao(), giaiPhong(), moRong()          | tuvung.cpp  | [x]        |
+| sapXepTheoAlphabet(), BinarySearch()      | tuvung.cpp  | [x]        |
+| timKiem(), themLichSu(), hienThiLichSu()  | tuvung.cpp  | [x]        |
+| Menu chính, switch-case                   | main.cpp    | [x]        |
+| Xử lý từng chức năng (xuLyXxx)            | main.cpp    | [x]        |
+| Ghép toàn bộ code + test tích hợp         | tất cả      | [x]        |
+| Viết báo cáo                              | -           | [ ]        |
+
+
+[Developer]
+
+| Nhiệm vụ                                               | File        | Trạng thái |
+|--------------------------------------------------------|-------------|------------|
+| themTuVung(), hienThiTatCa(), hienThiChiTiet()         | tuvung.cpp  | [x]        |
+| suaTuVung(), xoaTuVung()                               | tuvung.cpp  | [x]        |
+| danhDauYeuThich(), hienThiYeuThich()                   | tuvung.cpp  | [x]        |
+| quizNgauNhien() -- lưu kết quả vào struct              | tuvung.cpp  | [x]        |
+| hienThiThongKe() -- độ chính xác quiz tích lũy         | tuvung.cpp  | [x]        |
+
+
+[Tester & Documenter]
+
+| Nhiệm vụ                                               | File        | Trạng thái |
+|--------------------------------------------------------|-------------|------------|
+| docFile(), ghiFile()                                   | fileIO.cpp  | [x]        |
+| xuatYeuThich()                                         | fileIO.cpp  | [x]        |
+| docThongKe(), ghiThongKe()                             | fileIO.cpp  | [x]        |
+| veKhung(), hienThiMenu()                               | ui.cpp      | [x]        |
+| nhapSoNguyen(), nhapChuoi(), pauseScreen()             | ui.cpp      | [x]        |
+
+---
+
+# Tính năng
+
+| Tính năng                               | Trang thai |
+|-----------------------------------------|------------|
+| Thêm / sửa / xóa từ vựng                | [x]        |
+| Tìm kiếm Binary Search + chuỗi con      | [x]        |
+| Đánh dấu yêu thích, xuất file           | [x]        |
+| Quiz ngẫu nhiên 5 câu                   | [x]        |
+| Thống kê loại từ + yêu thích            | [x]        |
+| Lưu khi thoát, đọc khi khởi động        | [x]        |
+| Lịch sử tra cứu gần đây (10 từ)         | [x]        |
+| Thống kê độ chính xác quiz tích luỹ     | [x]        |
+
+---
+
+## Build
+
+```
+g++ -std=c++17 -o tudien main.cpp tuvung.cpp fileIO.cpp ui.cpp
+./tudien
+```
+
+# Dinh dang file
+
+**tudien.txt**
+```
+word|pronunciation|type|meaning|example|favorite(0/1)
+```
+
+**thongke.txt**
+```
+soLichSu
+tu1|tu2|tu3|...
+tongSoCauQuiz
+tongSoCauDung
+```
 ---------------------------------------------------
 LƯU Ý QUAN TRỌNG:
   - Cả 3 đều phải hiểu TOÀN BỘ code
