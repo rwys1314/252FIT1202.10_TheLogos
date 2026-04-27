@@ -1,86 +1,83 @@
-#include <iostream>
-#include <string>
+#include "tuvung.h"
 #include <limits>
-using namespace std;
 
 // ============================================================
 //  VẼ KHUNG
 // ============================================================
-void veKhung(const string&) {
-    for (int i = 0; i < rong; i++) {
-        cout << "=";
-    }
-    cout << "\n";
+void veKhung(const string& tieuDe) {
+    int rong = 44;
+    cout << "\n  " << string(rong, '=') << "\n";
+    int pad = (rong - (int)tieuDe.size()) / 2;
+    if (pad < 0) pad = 0;
+    cout << "  " << string(pad, ' ') << tieuDe << "\n";
+    cout << "  " << string(rong, '=') << "\n\n";
 }
 
 // ============================================================
-//  NHẬP SỐ NGUYÊN (có kiểm tra lỗi)
+//  NHẬP SỐ NGUYÊN HỢP LỆ
 // ============================================================
 int nhapSoNguyen(const string& thongBao, int min, int max) {
     int x;
-
     while (true) {
-        cout << thongBao;
+        if (!thongBao.empty()) cout << thongBao;
         cin >> x;
 
-        // Nếu nhập sai kiểu dữ liệu (vd: chữ)
         if (cin.fail()) {
-            cin.clear(); // xóa trạng thái lỗi
+            cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "  ✗ Vui long nhap so!\n";
+            cout << "  Vui long nhap so nguyen!\n";
             continue;
         }
-
-        // Kiểm tra phạm vi
-        if (x < min || x > max) {
-            cout << "  ✗ Nhap tu " << min << " den " << max << "!\n";
-            continue;
-        }
-
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        if (x < min || x > max) {
+            cout << "  Nhap tu " << min << " den " << max << "!\n";
+            continue;
+        }
         return x;
     }
 }
 
 // ============================================================
-//  NHẬP CHUỖI HỢP LỆ (không rỗng)
+//  NHẬP CHUỖI KHÔNG RỖNG
 // ============================================================
 string nhapChuoi(const string& thongBao) {
     string s;
-
     while (true) {
         cout << thongBao;
         getline(cin, s);
-
-        if (s.empty()) {
-            cout << "  ✗ Khong duoc de trong!\n";
-            continue;
-        }
-
-        return s;
+        if (!s.empty()) return s;
+        cout << "  Khong duoc de trong!\n";
     }
 }
 
 // ============================================================
-//  HIỂN THỊ MENU
+//  DỪNG MÀN HÌNH
+// ============================================================
+void pauseScreen() {
+    cout << "\n  [Nhan Enter de tiep tuc...]";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+
+// ============================================================
+//  HIỆN THỊ MÀN HÌNH
 // ============================================================
 void hienThiMenu() {
-    veKhung(50);
-
-    cout << " TU DIEN ANH - VIET\n";
-
-    veKhung(50);
-
-    cout << "  1. Them tu vung\n";
-    cout << "  2. Hien thi danh sach\n";
-    cout << "  3. Sua tu vung\n";
-    cout << "  4. Xoa tu vung\n";
-    cout << "  5. Tim kiem\n";
-    cout << "  6. Danh dau yeu thich\n";
-    cout << "  7. Hien thi yeu thich\n";
-    cout << "  8. Quiz ngau nhien\n";
-    cout << "  9. Thong ke\n";
-    cout << "  0. Luu va thoat\n";
-
-    veKhung(50);
+    cout << "\n";
+    cout << "  +======================================+\n";
+    cout << "  |      TU DIEN ANH - VIET v2.0        |\n";
+    cout << "  +======================================+\n";
+    cout << "  |  1. Tim kiem tu                     |\n";
+    cout << "  |  2. Them tu moi                     |\n";
+    cout << "  |  3. Sua thong tin tu                |\n";
+    cout << "  |  4. Xoa tu                          |\n";
+    cout << "  |  5. Hien thi tat ca tu              |\n";
+    cout << "  |  6. Danh dau / xem yeu thich        |\n";
+    cout << "  |  7. Quiz on tap ngau nhien          |\n";
+    cout << "  |  8. Thong ke                        |\n";
+    cout << "  |  9. Xuat file yeu thich             |\n";
+    cout << "  | 10. Lich su tra cuu                 |\n";
+    cout << "  |  0. Luu va thoat                    |\n";
+    cout << "  +======================================+\n";
+    cout << "  Chon chuc nang: ";
 }
