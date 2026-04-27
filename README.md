@@ -15,6 +15,7 @@ Leader (main.cpp + tuvung.h):
 - [x] khoiTao() / giaiPhong() / moRong()
 - [x] menu chính, validation input
 - [x] ghép code cuối + test tích hợp
+- [x] viết báo cáo
 
 ---------------------------------------------------
 Developer (tuvung.cpp):
@@ -25,13 +26,12 @@ Developer (tuvung.cpp):
 
 ---------------------------------------------------
 Tester & Documenter (fileIO.cpp + validation):
-- [ ] docFile() - đọc từ file khi khởi động
-- [ ] ghiFile() - ghi ra file khi thoát
-- [ ] xuatYeuThich() - xuất file riêng
-- [ ] validation input: nhapSoNguyen(), nhapChuoi(), veKhung()
-- [ ] try-catch cho tất cả các trường hợp lỗi
+- [x] docFile() - đọc từ file khi khởi động
+- [x] ghiFile() - ghi ra file khi thoát
+- [x] xuatYeuThich() - xuất file riêng
+- [x] validation input: nhapSoNguyen(), nhapChuoi(), veKhung()
+- [x] try-catch cho tất cả các trường hợp lỗi
 - [ ] test toàn bộ chức năng, ghi bug ra
-- [ ] Viết báo cáo
 
 ---------------------------------------------------
 CÁCH COMPILE:
