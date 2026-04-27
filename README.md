@@ -1,6 +1,7 @@
 # TranslateDictionary
 Từ điển Anh - Việt 
 
+
 ### CẤU TRÚC
 
 | File          | Người viết                          | Nội dung chính                                      |
@@ -32,7 +33,6 @@ Từ điển Anh - Việt
 | Menu chính, switch-case                   | main.cpp    | [x]        |
 | Xử lý từng chức năng (xuLyXxx)            | main.cpp    | [x]        |
 | Ghép toàn bộ code + test tích hợp         | tất cả      | [x]        |
-| Viết báo cáo                              | -           | [ ]        |
 
 
 **Developer**
