@@ -10,7 +10,7 @@ using namespace std;
 // ============================================================
 void ghiFile(const TuDien& td, const string& tenFile) {
     try {
-        ofstream f(tenFile.txt);
+        ofstream f(tenFile + ".txt");
 
         if (!f.is_open()) {
             cout << "Khong mo duoc file de ghi!";
@@ -43,7 +43,7 @@ void ghiFile(const TuDien& td, const string& tenFile) {
 // ============================================================
 void docFile(TuDien& td, const string& tenFile) {
     try {
-        ifstream f(tenFile.txt);
+        ifstream f(tenFile + ".txt");
 
         if (!f.is_open()) {
             cout << "Khong mo duoc file de doc!";
@@ -98,7 +98,7 @@ void docFile(TuDien& td, const string& tenFile) {
 // ============================================================
 void xuatYeuThich(const TuDien& td, const string& tenFile) {
     try {
-        ofstream f(tenFile.txt);
+        ofstream f(tenFile ".txt");
 
         if (!f.is_open()) {
             cout << "Khong mo duoc file de ghi!";
