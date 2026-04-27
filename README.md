@@ -10,38 +10,28 @@ Cấu trúc:
 - tudien.txt   <- Có sẵn
 
 ---------------------------------------------------
-Leader:
-- [x] struct TuVung + TuDien (mảng động)
+Leader (main.cpp + tuvung.h):
+- [x] struct TuVung, TuDien
 - [x] khoiTao() / giaiPhong() / moRong()
-- [x] sapXepTheoAlphabet()
-- [x] timKiemBinarySearch()
-- [x] timKiemChuoiCon()
-- [x] hienThiMenu() / veKhung()
-- [x] main.cpp (vong lap menu chinh)
-- [ ] Ghép code cuối + test tích hợp
+- [x] menu chính, validation input
+- [x] ghép code cuối + test tích hợp
 
 ---------------------------------------------------
-Developer
-- [ ] themTuVung()
-- [ ] hienThiTatCa() + hienThiChiTiet()
-- [ ] suaTuVung()
-- [ ] xoaTuVung()
-- [ ] danhDauYeuThich() + hienThiYeuThich()
-- [ ] quizNgauNhien()
-- [ ] hienThiThongKe()
-  => File: crud.cpp 
+Developer (tuvung.cpp):
+- [x] crud: themTuVung(), hienThiTatCa() + hienThiChiTiet(), suaTuVung(), xoaTuVung()
+- [x] danhDauYeuThich() + hienThiYeuThich()
+- [x] quizNgauNhien()
+- [x] hienThiThongKe()
 
 ---------------------------------------------------
-Tester & Documenter:
+Tester & Documenter (fileIO.cpp + validation):
 - [ ] docFile() - đọc từ file khi khởi động
-- [ ] ghiFile() - ghi khi thoát
+- [ ] ghiFile() - ghi ra file khi thoát
 - [ ] xuatYeuThich() - xuất file riêng
-- [ ] nhapSoHopLe() - validation số
-- [ ] nhapChuoiHopLe() - validation chuỗi
+- [ ] validation input: nhapSoNguyen(), nhapChuoi(), veKhung()
 - [ ] try-catch cho tất cả các trường hợp lỗi
-- [ ] Test toàn bộ chức năng, ghi bug ra
+- [ ] test toàn bộ chức năng, ghi bug ra
 - [ ] Viết báo cáo
-  => File: fileIO.cpp 
 
 ---------------------------------------------------
 CÁCH COMPILE:
