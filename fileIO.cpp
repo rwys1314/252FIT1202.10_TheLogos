@@ -134,3 +134,47 @@ void xuatYeuThich(const TuDien& td, const string& tenFile) {
         cout << " Loi xuat yeu thich: " << e.what() << endl;
     }
 }
+
+// ============================================================
+//  GHI THỐNG KÊ
+// ============================================================
+void ghiThongKe(const TuDien& td, const string& tenFile) {
+    ofstream f(tenFile);
+    if (!f.is_open()) throw runtime_error("Khong mo duoc file: " + tenFile);
+
+    f << td.soLichSu << "\n";
+    for (int i = 0; i < td.soLichSu; i++) {
+        f << td.lichSu[i];
+        if (i < td.soLichSu - 1) f << "|";
+    }
+    f << "\n";
+    f << td.tongSoCauQuiz << "\n";
+    f << td.tongSoCauDung << "\n";
+    f.close();
+}
+
+// ============================================================
+//  ĐỌC THỐNG KÊ
+// ============================================================
+void docThongKe(TuDien& td, const string& tenFile) {
+    ifstream f(tenFile);
+    if (!f.is_open()) return; // Khong co file thi bo qua, khong throw
+
+    string line;
+    getline(f, line);
+    td.soLichSu = stoi(line);
+
+    getline(f, line);
+    // Tach cac tu lich su theo '|'
+    int idx = 0;
+    size_t pos;
+    while ((pos = line.find('|')) != string::npos && idx < 10) {
+        td.lichSu[idx++] = line.substr(0, pos);
+        line = line.substr(pos + 1);
+    }
+    if (!line.empty() && idx < 10) td.lichSu[idx] = line;
+
+    getline(f, line); td.tongSoCauQuiz = stoi(line);
+    getline(f, line); td.tongSoCauDung = stoi(line);
+    f.close();
+}
