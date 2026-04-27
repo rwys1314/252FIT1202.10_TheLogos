@@ -26,9 +26,11 @@ void hienThiMenu() {
 //  XỬ LÝ TỪNG CHỨC NĂNG
 // ============================================================
 void xuLyTimKiem(TuDien& td) {
+    veKhung("TIM KIEM TU");
     string keyword = nhapChuoi("Nhap tu can tim: ");
-    sapXepTheoAlphabet(td);  // Sắp xếp trước khi Binary Search
-    timKiem(td, keyword);
+    themLichSu(td, keyword);      
+    sapXepTheoAlphabet(td);
+    int idx = BinarySearch(td, keyword);
 }
 
 void xuLyThem(TuDien& td) {
@@ -94,6 +96,7 @@ int main() {
     // Đọc dữ liệu từ file khi khởi động
     try {
         docFile(td, TEN_FILE);
+        docThongKe(td, "thongke.txt");
         cout << "✓ Da tai " << td.soLuong << " tu tu file '" << TEN_FILE << "'\n";
     } catch (const exception& e) {
         cout << "! Khong tim thay file, bat dau voi tu dien rong.\n";
@@ -139,6 +142,7 @@ int main() {
             case 0:
                 cout << "Dang luu du lieu...\n";
                 ghiFile(td, TEN_FILE);
+                ghiThongKe(td, "thongke.txt");
                 cout << "✓ Da luu. Tam biet!\n";
                 break;
             default:
