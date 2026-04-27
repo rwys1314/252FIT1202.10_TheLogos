@@ -6,7 +6,7 @@
 void hienThiMenu() {
     cout << "\n";
     cout << "╔══════════════════════════════════════╗\n";
-    cout << "║       TU DIEN ANH - VIET v1.0        ║\n";
+    cout << "║       TU DIEN ANH - VIET             ║\n";
     cout << "╠══════════════════════════════════════╣\n";
     cout << "║  1. Tim kiem tu                      ║\n";
     cout << "║  2. Them tu moi                      ║\n";
@@ -17,6 +17,7 @@ void hienThiMenu() {
     cout << "║  7. Quiz on tap ngau nhien           ║\n";
     cout << "║  8. Thong ke                         ║\n";
     cout << "║  9. Xuat file yeu thich              ║\n";
+    cout << "║  10. Thoat                            ║\n";
     cout << "║  0. Thoat                            ║\n";
     cout << "╚══════════════════════════════════════╝\n";
     cout << "  Chon chuc nang: ";
@@ -139,6 +140,10 @@ int main() {
             case 9:
                 xuatYeuThich(td, "yeuthich.txt");
                 cout << "✓ Da xuat file 'yeuthich.txt'!\n";
+                break;
+            case 10:
+                veKhung("LICH SU TRA CUU");
+                hienThiLichSu(td);
                 break;
             case 0:
                 cout << "Dang luu du lieu...\n";
