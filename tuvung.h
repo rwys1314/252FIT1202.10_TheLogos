@@ -58,6 +58,12 @@ int  BinarySearch       (const TuDien& td, const string& word);
 void timKiem            (const TuDien& td, const string& keyword);
 
 // ============================================================
+// LỊCH SỬ (2)
+// ============================================================
+void themLichSu    (TuDien& td, const string& word);
+void hienThiLichSu (const TuDien& td);
+
+// ============================================================
 //  YÊU THÍCH & QUIZ (2)
 // ============================================================
 void danhDauYeuThich (TuDien& td, int viTri);
@@ -71,6 +77,8 @@ void hienThiThongKe  (const TuDien& td);
 void docFile       (TuDien& td, const string& tenFile);
 void ghiFile       (const TuDien& td, const string& tenFile);
 void xuatYeuThich  (const TuDien& td, const string& tenFile);
+void docThongKe    (TuDien& td, const string& tenFile);
+void ghiThongKe    (const TuDien& td, const string& tenFile);
 
 // ============================================================
 //  VALIDATION & UI (3)
