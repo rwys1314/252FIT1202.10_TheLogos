@@ -14,6 +14,9 @@ Từ điển Anh - Việt
 | thongke.txt   | Tự động tạo                         | Lịch sử tra cứu, thống kê quiz                      |
 
 
+
+
+
 ### PHÂN CÔNG CỤ THỂ
 
 
@@ -77,7 +80,7 @@ g++ -std=c++17 -o tudien main.cpp tuvung.cpp fileIO.cpp ui.cpp
 ./tudien
 ```
 
-## Định dạng file
+### Định dạng file
 
 **tudien.txt**
 ```
