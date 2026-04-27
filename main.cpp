@@ -92,6 +92,7 @@ void xuLyYeuThich(TuDien& td) {
 int main() {
     const string TEN_FILE = "tudien.txt";
     TuDien td;
+    khoiTao(td);
 
     // Đọc dữ liệu từ file khi khởi động
     try {
@@ -149,7 +150,7 @@ int main() {
                 cout << "✗ Lua chon khong hop le, vui long thu lai!\n";
         }
 
-        if (luaChon != 0) pause();
+        if (luaChon != 0) pauseScreen();
     }
 
     return 0;
